@@ -7,7 +7,7 @@ public class NewCarController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private float steeringAngle;
-
+    
     [SerializeField] private WheelCollider frontLeftW, frontRightW;
     [SerializeField] private WheelCollider rearLeftW, rearRightW;
     [SerializeField] private Transform frontLeftT, frontRightT;
