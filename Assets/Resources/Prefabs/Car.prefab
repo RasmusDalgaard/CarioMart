@@ -527,7 +527,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550312623354251227}
   serializedVersion: 2
-  m_Mass: 1500
+  m_Mass: 600
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -569,7 +569,7 @@ MonoBehaviour:
   rearLeftT: {fileID: 5827073411008777140}
   rearRightT: {fileID: 5640833989542933915}
   maxSteeringAngle: 30
-  motorForce: 50
+  motorForce: 300
 --- !u!114 &3813156252978656283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,6 +850,7 @@ GameObject:
   - component: {fileID: 8421915097673457751}
   - component: {fileID: 7701098690548550354}
   - component: {fileID: 574044948656092071}
+  - component: {fileID: 7229402111769859216}
   m_Layer: 0
   m_Name: CarCam
   m_TagString: Untagged
@@ -865,7 +866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4763295622212601706}
   m_LocalRotation: {x: 0.2164396, y: -0, z: -0, w: 0.97629607}
-  m_LocalPosition: {x: 0, y: 1.07, z: -1.17}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -923,6 +924,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4763295622212601706}
   m_Enabled: 1
+--- !u!114 &7229402111769859216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763295622212601706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab73474f69d6c47bc8a235e353ba7cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFollow: {fileID: 3550312623354251226}
+  offset: {x: 0, y: 0.7, z: -1.35}
+  followSpeed: 10
+  lookSpeed: 10
 --- !u!1 &5838601267026606207
 GameObject:
   m_ObjectHideFlags: 0
