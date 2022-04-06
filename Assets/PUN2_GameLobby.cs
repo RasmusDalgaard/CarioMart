@@ -57,14 +57,13 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
     void OnGUI()
     {
-        GUI.Window(0, new Rect(Screen.width / 2 - 450, Screen.height / 2 - 200, 900, 400), LobbyWindow, "Lobby");
+        GUI.Window(0, new Rect(Screen.width / 2 - 900, Screen.height / 2 - 400, 1800, 800), LobbyWindow, "Lobby");
     }
 
     void LobbyWindow(int index)
     {
         //Connection Status and Room creation Button
         GUILayout.BeginHorizontal();
-
         GUILayout.Label("Status: " + PhotonNetwork.NetworkClientState);
 
         if (joiningRoom || !PhotonNetwork.IsConnected || PhotonNetwork.NetworkClientState != ClientState.JoinedLobby)
