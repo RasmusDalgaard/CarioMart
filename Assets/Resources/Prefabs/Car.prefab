@@ -606,8 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localScripts:
   - {fileID: 3550312623354251231}
-  localObjects:
-  - {fileID: 5663579538501848386, guid: a86fb207b9ddd44e389ece79921f70e0, type: 3}
+  localObjects: []
   wheels:
   - {fileID: 4121238024863686552}
   - {fileID: 6058907196859251012}

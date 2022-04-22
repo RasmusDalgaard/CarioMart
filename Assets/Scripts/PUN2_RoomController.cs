@@ -7,6 +7,11 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     //Player instance prefab, must be located in the Resources folder
     public GameObject playerPrefab;
 
+    //Player Camera instance prefab, must be located in the Resources folder
+    private GameObject playerCamera;
+
+    //Camera offset to target
+    public Vector3 offset;
 
     //Player spawn point
     public Transform[] spawnPoints;
@@ -21,15 +26,51 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
             UnityEngine.SceneManagement.SceneManager.LoadScene("GameLobby");
             return;
         }
-
+        
         //We're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
         GameObject instantiatedPlayer = PhotonNetwork.Instantiate("Prefabs/Car", spawnPoints[Random.Range(0, spawnPoints.Length - 1)].position, spawnPoints[Random.Range(0, spawnPoints.Length - 1)].rotation, 0);
 
         // instantiate cam
-        PhotonNetwork.Instantiate("Prefabs/PlayerCamera", new Vector3(485, 5, 515), Quaternion.identity, 0);
+       // GameObject instantiatedCamera = PhotonNetwork.Instantiate("Prefabs/PlayerCamera", new Vector3(485, 5, 515), Quaternion.identity, 0);
 
-        // set cam.target = player
-        CameraFollow.mainCam.target = instantiatedPlayer.transform;
+        //Camera
+        playerPrefab = instantiatedPlayer;
+       // playerCamera = instantiatedCamera
+        playerCamera = Camera.main.gameObject;
+
+        //Set camera start position
+        playerCamera.transform.position = playerPrefab.transform.position;
+        
+    }
+
+    public void LookAtTarget()
+    {
+        Vector3 lookDirection = playerPrefab.transform.position - playerCamera.transform.position;
+        Quaternion rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+        playerCamera.transform.rotation = Quaternion.Lerp(playerCamera.transform.rotation, rotation, 10 * Time.deltaTime);
+    }
+
+    public void MoveToTarget()
+    {
+        Vector3 targetPosition = playerPrefab.transform.position +
+                             playerPrefab.transform.forward * offset.z +
+                             playerPrefab.transform.right * offset.x +
+                             playerPrefab.transform.up * offset.y;
+        playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position, targetPosition, 10 * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        
+        //Camera Movement
+        if (playerPrefab != null && playerCamera != null)
+        {
+            //Camera Rotation
+            LookAtTarget();
+
+            //Camera Follow
+            MoveToTarget();
+        }
     }
 
     void OnGUI()
