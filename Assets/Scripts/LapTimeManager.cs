@@ -12,12 +12,13 @@ public class LapTimeManager : MonoBehaviour
     public GameObject MinuteBox;
     public GameObject SecondBox;
     public GameObject MilliBox;
-
+    public static float RawTime;
 
     void Update()
     {
         //MILISECONDS
         MilliCount += Time.deltaTime * 10;
+        RawTime += Time.deltaTime;
         //Convert to string value
         MilliDisplay = MilliCount.ToString("F0").Replace(",", "");
         //Display milliseconds in the UI element
