@@ -8,9 +8,9 @@ public class LapComplete : MonoBehaviour
     public GameObject FinishLineTrigger;
     public GameObject HalfPointTrigger;
 
-    public GameObject MinuteDisplay;
-    public GameObject SecondDisplay;
-    public GameObject MilliDisplay;
+    public GameObject MinuteDisplayBest;
+    public GameObject SecondDisplayBest;
+    public GameObject MilliDisplayBest;
     public GameObject LapCounter;
     public int LapsDone;
     public float RawTime;
@@ -23,23 +23,23 @@ public class LapComplete : MonoBehaviour
         {
             if (LapTimeManager.SecondCount <= 9)
             {
-                SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+                SecondDisplayBest.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
             }
             else
             {
-                SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
+                SecondDisplayBest.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
             }
 
             if (LapTimeManager.MinuteCount <= 9)
             {
-                MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
+                MinuteDisplayBest.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
             }
             else
             {
-                MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
+                MinuteDisplayBest.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
             }
 
-            MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString("F0").Replace(",", "");
+            MilliDisplayBest.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString().Replace(",", "");
         }
 
         PlayerPrefs.SetInt("MinSave", LapTimeManager.MinuteCount);
