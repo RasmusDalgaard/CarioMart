@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Transform objectToFollow;
+    public Transform objectToFollow;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float followSpeed = 10;
     [SerializeField] private float lookSpeed = 10;
+
+    public static CameraController mainCam;
 
     public void LookAtTarget()
     {
@@ -28,6 +28,6 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         LookAtTarget();
-        MoveToTarget();
+       MoveToTarget();
     }
 }
