@@ -18402,6 +18402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1939308768}
     m_Modifications:
+    - target: {fileID: 433954130831630027, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 433954132392611761, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
       propertyPath: m_Name
       value: Barrel (1)
@@ -18416,7 +18420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433954132392611774, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 433954132392611774, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21833,6 +21837,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1939308768}
     m_Modifications:
+    - target: {fileID: 433954130831630027, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 433954132392611761, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
       propertyPath: m_Name
       value: Barrel
@@ -21847,7 +21855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433954132392611774, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 433954132392611774, guid: 23b5959b1dc8e434fae7af72a9b45fb9, type: 3}
       propertyPath: m_LocalPosition.z
