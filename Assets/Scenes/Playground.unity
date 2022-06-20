@@ -31689,7 +31689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2923146167223391915, guid: 68b1a243c7c8a3048a0f0104cf960c2c, type: 3}
       propertyPath: animationOffset
-      value: 0.501
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 6067264919199910638, guid: 68b1a243c7c8a3048a0f0104cf960c2c, type: 3}
       propertyPath: m_Name
