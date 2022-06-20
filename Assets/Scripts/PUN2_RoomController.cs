@@ -77,18 +77,18 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     {
         //Styling
 
-        GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-        myButtonStyle.fontSize = 25;
+        GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+        buttonStyle.fontSize = 25;
 
-        GUIStyle myStyle = new GUIStyle();
-        myStyle.fontSize = 30;
-        myStyle.normal.textColor = Color.white;
+        GUIStyle textStyle = new GUIStyle();
+        textStyle.fontSize = 30;
+        textStyle.normal.textColor = Color.white;
 
         if (PhotonNetwork.CurrentRoom == null)
             return;
 
         //Leave this Room
-        if (GUI.Button(new Rect(5, 5, 200, 50), "Leave Room", myButtonStyle))
+        if (GUI.Button(new Rect(5, 5, 200, 50), "Leave Room", buttonStyle))
         {
             PhotonNetwork.LeaveRoom();
         }
@@ -98,7 +98,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         {
             //Show if this player is a Master Client. There can only be one Master Client per Room so use this to define the authoritative logic etc.)
             string isMasterClient = (PhotonNetwork.PlayerList[i].IsMasterClient ? ": Host" : "");
-            GUI.Label(new Rect(5, 70 + 30 * i, 400, 50), PhotonNetwork.PlayerList[i].NickName + isMasterClient, myStyle);
+            GUI.Label(new Rect(5, 70 + 30 * i, 400, 50), PhotonNetwork.PlayerList[i].NickName + isMasterClient, textStyle);
         }
     }
 

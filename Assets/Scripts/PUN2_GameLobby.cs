@@ -61,25 +61,25 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
     void OnGUI()
     {
         //Styling
-        GUIStyle myBoxStyle = new GUIStyle(GUI.skin.box);
-        myBoxStyle.fontSize = 22;
+        GUIStyle lobbyWindowStyle = new GUIStyle(GUI.skin.box);
+        lobbyWindowStyle.fontSize = 22;
 
         //Lobby window
-        GUI.Window(0, new Rect(Screen.width / 2 - 900, Screen.height / 2 - 400, 1800, 800), LobbyWindow, "Lobby", myBoxStyle);
+        GUI.Window(0, new Rect(Screen.width / 2 - 900, Screen.height / 2 - 400, 1800, 800), LobbyWindow, "Lobby", lobbyWindowStyle);
     }
 
     void LobbyWindow(int index)
     {
         //Styling
-        GUIStyle myStyle = new GUIStyle();
-        myStyle.fontSize = 20;
-        myStyle.normal.textColor = Color.white;
+        GUIStyle textStyle = new GUIStyle();
+        textStyle.fontSize = 20;
+        textStyle.normal.textColor = Color.white;
 
-        GUIStyle myBoxStyle = new GUIStyle(GUI.skin.box);
-        myBoxStyle.fontSize = 22;
+        GUIStyle boxStyle = new GUIStyle(GUI.skin.box);
+        boxStyle.fontSize = 22;
 
-        GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-        myButtonStyle.fontSize = 22;
+        GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+        buttonStyle.fontSize = 22;
 
         GUIStyle textFieldStyle = new GUIStyle(GUI.skin.textField);
         textFieldStyle.fontSize = 18;
@@ -88,7 +88,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
         //Connection Status and Room creation Button
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Status: " + PhotonNetwork.NetworkClientState, myStyle);
+        GUILayout.Label("Status: " + PhotonNetwork.NetworkClientState, textStyle);
 
         if (joiningRoom || !PhotonNetwork.IsConnected || PhotonNetwork.NetworkClientState != ClientState.JoinedLobby)
         {
@@ -99,7 +99,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
         //Room name text field
 
-        if (GUILayout.Button("Create Room", myButtonStyle))
+        if (GUILayout.Button("Create Room", buttonStyle))
         {
             if (roomName != "")
             {
@@ -122,20 +122,20 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
         if (createdRooms.Count == 0)
         {
-            GUILayout.Label("No Rooms were created yet...", myStyle);
+            GUILayout.Label("No Rooms were created yet...", textStyle);
         }
         else
         {
             for (int i = 0; i < createdRooms.Count; i++)
             {
                 GUILayout.BeginHorizontal("box");
-                GUILayout.Label(createdRooms[i].Name, myStyle);
+                GUILayout.Label(createdRooms[i].Name, textStyle);
                 GUILayout.FlexibleSpace();
-                GUILayout.Label(createdRooms[i].PlayerCount + "/" + createdRooms[i].MaxPlayers, myStyle);
+                GUILayout.Label(createdRooms[i].PlayerCount + "/" + createdRooms[i].MaxPlayers, textStyle);
 
                 GUILayout.FlexibleSpace();
 
-                if (GUILayout.Button("Join Room", myButtonStyle))
+                if (GUILayout.Button("Join Room", buttonStyle))
                 {
                     joiningRoom = true;
 
@@ -154,14 +154,14 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
         //Set player name and Refresh Room button
         GUILayout.BeginHorizontal();
 
-        GUILayout.Label("Player Name: ", myStyle);
+        GUILayout.Label("Player Name: ", textStyle);
         //Player name text field
         playerName = GUILayout.TextField(playerName, textFieldStyle);
 
         GUILayout.FlexibleSpace();
 
         GUI.enabled = (PhotonNetwork.NetworkClientState == ClientState.JoinedLobby || PhotonNetwork.NetworkClientState == ClientState.Disconnected) && !joiningRoom;
-        if (GUILayout.Button("Refresh", myButtonStyle))
+        if (GUILayout.Button("Refresh", buttonStyle))
         {
             if (PhotonNetwork.IsConnected)
             {
