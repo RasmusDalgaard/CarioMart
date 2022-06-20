@@ -15,6 +15,18 @@ public class NewCarController : MonoBehaviour
     [SerializeField] private float maxSteeringAngle = 30;
     [SerializeField] private float motorForce = 50;
 
+    public float mass;   //speed of the car
+    private Rigidbody rb;
+    private float boostTimer;
+    private bool boosting;
+
+
+    void Start()
+    {
+        boostTimer = 0;
+        boosting = false;
+
+    }
     public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -53,11 +65,41 @@ public class NewCarController : MonoBehaviour
         transform.rotation = quat;
     }
 
+    private void SlowSpeed()
+    {
+        if (boosting)
+        {
+            boostTimer += Time.deltaTime;
+            if (boostTimer >= 3)
+            {
+                rb = GetComponent<Rigidbody>();
+                rb.mass = 400;
+                boostTimer = 0;
+                boosting = false;
+
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         GetInput();
         Steer();
         Accelerate();
         UpdateWheelPoses();
+        SlowSpeed();
+
+
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "SlowSpeed")
+        {
+            boosting = true;
+            rb = GetComponent<Rigidbody>();
+            rb.mass = 40000;
+        }
     }
 }

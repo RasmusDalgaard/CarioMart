@@ -569,6 +569,7 @@ MonoBehaviour:
   rearRightT: {fileID: 5640833989542933915}
   maxSteeringAngle: 30
   motorForce: 300
+  mass: 0
 --- !u!114 &3813156252978656283
 MonoBehaviour:
   m_ObjectHideFlags: 0
