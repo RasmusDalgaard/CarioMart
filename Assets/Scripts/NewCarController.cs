@@ -81,6 +81,8 @@ public class NewCarController : MonoBehaviour
         }
     }
 
+    
+
     private void FixedUpdate()
     {
         GetInput();
@@ -88,7 +90,6 @@ public class NewCarController : MonoBehaviour
         Accelerate();
         UpdateWheelPoses();
         SlowSpeed();
-
 
 
     }
@@ -99,7 +100,16 @@ public class NewCarController : MonoBehaviour
         {
             boosting = true;
             rb = GetComponent<Rigidbody>();
-            rb.mass = 40000;
+            rb.mass = 500000;
+        }
+        if (other.tag == "SpeedBoost")
+        {
+            boosting = true;
+            rb = GetComponent<Rigidbody>();
+            rb.mass = 130;
+           // Destroy(other.gameObject);
         }
     }
+
+    
 }
