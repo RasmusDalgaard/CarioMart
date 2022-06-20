@@ -8,7 +8,6 @@ public class WaypointScript : MonoBehaviour
 
     public GameObject[] waypoints;
     int current = 0;
-    float rotspeed;
     public float speed;
     float WPradius = 1;
 
