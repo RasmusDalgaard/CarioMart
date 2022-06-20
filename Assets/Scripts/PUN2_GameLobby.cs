@@ -93,6 +93,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
         GUILayout.EndHorizontal();
 
+
         //Scroll through available rooms
         roomListScroll = GUILayout.BeginScrollView(roomListScroll, true, true);
 
@@ -182,8 +183,8 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
         Debug.Log("OnCreatedRoom");
         //Set our player name
         PhotonNetwork.NickName = playerName;
-        //Load the Scene called Playground (Make sure it's added to build settings)
-        PhotonNetwork.LoadLevel("Playground");
+        //Load the Scene called MainMenu (Make sure it's added to build settings)
+        PhotonNetwork.LoadLevel("MainMenu");
     }
 
     public override void OnJoinedRoom()
