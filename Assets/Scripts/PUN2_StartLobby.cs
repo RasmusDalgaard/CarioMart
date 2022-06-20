@@ -14,7 +14,8 @@ public class PUN2_StartLobby : MonoBehaviourPunCallbacks
         myButtonStyle.fontSize = 25;
 
         GUIStyle myStyle = new GUIStyle();
-        myStyle.fontSize = 20;
+        myStyle.fontSize = 30;
+        myStyle.normal.textColor = Color.white;
 
 
         if (PhotonNetwork.CurrentRoom == null)
