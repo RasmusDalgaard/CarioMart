@@ -13,8 +13,8 @@ public class PUN2_StartLobby : MonoBehaviourPunCallbacks
         GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
         myButtonStyle.fontSize = 25;
 
-        GUIStyle myRectStyle = new GUIStyle();
-        myRectStyle.fontSize = 20;
+        GUIStyle myStyle = new GUIStyle();
+        myStyle.fontSize = 20;
 
 
         if (PhotonNetwork.CurrentRoom == null)
@@ -38,7 +38,7 @@ public class PUN2_StartLobby : MonoBehaviourPunCallbacks
         {
             //Show if this player is a Master Client. There can only be one Master Client per Room so use this to define the authoritative logic etc.)
             string isMasterClient = (PhotonNetwork.PlayerList[i].IsMasterClient ? ": Host" : "");
-            GUI.Label(new Rect(5, 70+30 * i, 400, 50), PhotonNetwork.PlayerList[i].NickName + isMasterClient, myRectStyle);
+            GUI.Label(new Rect(5, 70+30 * i, 400, 50), PhotonNetwork.PlayerList[i].NickName + isMasterClient, myStyle);
         }
     }
 
