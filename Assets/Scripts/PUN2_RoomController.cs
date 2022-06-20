@@ -84,9 +84,6 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
             PhotonNetwork.LeaveRoom();
         }
 
-        //Show the Room name
-        GUI.Label(new Rect(135, 5, 200, 25), PhotonNetwork.CurrentRoom.Name);
-
         //Show the list of the players connected to this Room
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {

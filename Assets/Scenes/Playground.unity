@@ -12131,6 +12131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7048650466875351458, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7048650466875351459, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -107.78998
@@ -12142,6 +12146,18 @@ PrefabInstance:
     - target: {fileID: 7048650467177491460, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
       propertyPath: m_Name
       value: LapTimeUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048650467177491460, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048650467177491462, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048650467177491463, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7048650467177491480, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
       propertyPath: m_Pivot.x
@@ -12226,6 +12242,10 @@ PrefabInstance:
     - target: {fileID: 7048650467177491480, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048650467177491481, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7404391587480340251, guid: 993ca9a5aed0c524790699034a19c022, type: 3}
       propertyPath: m_AnchoredPosition.x
