@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class PUN2_StartLobby : MonoBehaviour
 
 {
-
-    void Start()
-    {
-        GUI.enabled = false;
-    }
-
     void OnGUI()
     {
         if (PhotonNetwork.CurrentRoom == null)
@@ -25,7 +18,7 @@ public class PUN2_StartLobby : MonoBehaviour
         }
 
         //Start Game
-        if  (GUI.Button(new Rect(1310, 250, 250, 75), "Start Game"))
+        if  (GUI.Button(new Rect(Screen.width / 2-125, Screen.height / 2, 250, 75), "Start Game"))
         {
             Debug.Log("Start");
             PhotonNetwork.LoadLevel("Playground");
