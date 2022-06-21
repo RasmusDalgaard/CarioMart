@@ -21,12 +21,7 @@ public class NewCarController : MonoBehaviour
     private bool boosting;
 
 
-    void Start()
-    {
-        boostTimer = 0;
-        boosting = false;
-
-    }
+    
     public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -65,17 +60,17 @@ public class NewCarController : MonoBehaviour
         transform.rotation = quat;
     }
 
-    private void SlowSpeed()
+    private void ModifyCarSpeed()
     {
-        if (boosting)
+        if (boosting)                                   //Boosting is default false. It is set to true when the car collides with the object
         {
             boostTimer += Time.deltaTime;
-            if (boostTimer >= 3)
+            if (boostTimer >= 3)                        //BoostTimer >= seconds the boosting effect lasts.
             {
                 rb = GetComponent<Rigidbody>();
                 rb.mass = 400;
                 boostTimer = 0;
-                boosting = false;
+                boosting = false;                       //Boosting is set to false to make the car normal again.
 
             }
         }
@@ -89,11 +84,10 @@ public class NewCarController : MonoBehaviour
         Steer();
         Accelerate();
         UpdateWheelPoses();
-        SlowSpeed();
-
+        ModifyCarSpeed();
 
     }
-
+    //Trigger effect when the car collides with the object.
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "SlowSpeed")
