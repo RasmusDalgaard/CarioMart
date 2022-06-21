@@ -9,7 +9,7 @@ public class Countdown : MonoBehaviour
     //public AudioSource GetReadyAudio;
     //public AudioSource GoAudio;
     public GameObject LapTimer;
-    //public GameObject CarControls;
+    public GameObject RoomController;
     void Start()
     {
         StartCoroutine(CountStart());
@@ -39,6 +39,7 @@ public class Countdown : MonoBehaviour
         CountDown.SetActive(false);
         //GoAudio.Play()
         LapTimer.SetActive(true);
-        //CarControls.SetActive(true);
+        var Car = RoomController.GetComponent<PUN2_RoomController>().playerPrefab;
+        var CarControls = Car.GetComponent<NewCarController>().motorForce = 250;
     }
 }

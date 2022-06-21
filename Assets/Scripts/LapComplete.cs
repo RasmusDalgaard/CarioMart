@@ -12,13 +12,15 @@ public class LapComplete : MonoBehaviour
     public GameObject SecondDisplayBest;
     public GameObject MilliDisplayBest;
     public GameObject LapCounter;
-    public int LapsDone;
+    public int LapsDone = 0;
     public float RawTime;
 
     public GameObject RaceFinish;
 
-    void Update() {
-        if (LapsDone == 3) {
+    void Update()
+    {
+        if (LapsDone == 2)
+        {
             RaceFinish.SetActive(true);
         }
     }

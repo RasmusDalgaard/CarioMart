@@ -7,13 +7,13 @@ public class NewCarController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private float steeringAngle;
-    
+
     [SerializeField] private WheelCollider frontLeftW, frontRightW;
     [SerializeField] private WheelCollider rearLeftW, rearRightW;
     [SerializeField] private Transform frontLeftT, frontRightT;
     [SerializeField] private Transform rearLeftT, rearRightT;
     [SerializeField] private float maxSteeringAngle = 30;
-    [SerializeField] private float motorForce = 50;
+    [SerializeField] public float motorForce = 0;
 
     public float mass;   //speed of the car
     private Rigidbody rb;
@@ -81,7 +81,7 @@ public class NewCarController : MonoBehaviour
         }
     }
 
-    
+
 
     private void FixedUpdate()
     {
@@ -96,7 +96,7 @@ public class NewCarController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "SlowSpeed")
+        if (other.tag == "SlowSpeed")
         {
             boosting = true;
             rb = GetComponent<Rigidbody>();
@@ -107,9 +107,9 @@ public class NewCarController : MonoBehaviour
             boosting = true;
             rb = GetComponent<Rigidbody>();
             rb.mass = 130;
-           // Destroy(other.gameObject);
+            // Destroy(other.gameObject);
         }
     }
 
-    
+
 }
