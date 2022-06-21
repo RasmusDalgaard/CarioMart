@@ -15,10 +15,10 @@ public class NewCarController : MonoBehaviour
     [SerializeField] private float maxSteeringAngle = 30;
     [SerializeField] public float motorForce = 0;
 
-    public float mass;   //speed of the car
-    private Rigidbody rb;
-    private float boostTimer;
-    private bool boosting;
+    [SerializeField] private float mass;   //speed of the car
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float boostTimer;
+    [SerializeField] private bool boosting;
 
 
     
