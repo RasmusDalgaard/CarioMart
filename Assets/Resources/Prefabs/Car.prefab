@@ -660,6 +660,7 @@ MonoBehaviour:
   idle: {fileID: 3135810379624856128}
   engine: {fileID: 8300000, guid: 127d5bc7152584d8d9446bbb37acec3d, type: 3}
   engineIdle: {fileID: 8300000, guid: 127d5bc7152584d8d9446bbb37acec3d, type: 3}
+  speed: 0
 --- !u!114 &3813156252978656283
 MonoBehaviour:
   m_ObjectHideFlags: 0

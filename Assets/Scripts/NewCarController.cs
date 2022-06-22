@@ -32,6 +32,9 @@ public class NewCarController : MonoBehaviour
     private float boostTimer;
     private bool boosting;
 
+    //Test
+    [SerializeField]private int speed;
+
 
 
     public void GetInput()
@@ -105,8 +108,6 @@ public class NewCarController : MonoBehaviour
             driving.Stop();
             idle.PlayOneShot(engineIdle);
         }
-
-        Debug.Log(frontLeftW.motorTorque);
 
         GetInput();
         Steer();
