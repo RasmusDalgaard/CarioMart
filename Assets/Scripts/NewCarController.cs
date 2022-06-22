@@ -15,10 +15,16 @@ public class NewCarController : MonoBehaviour
     [SerializeField] private float maxSteeringAngle = 30;
     [SerializeField] public float motorForce = 0;
 
-    [SerializeField] private float mass;   //speed of the car
+    [SerializeField] private float mass;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float boostTimer;
     [SerializeField] private bool boosting;
+
+    //Sound
+    public AudioSource driving;
+    public AudioSource idle;
+    public AudioClip engine;
+    public AudioClip engineIdle;
 
 
     
@@ -80,13 +86,27 @@ public class NewCarController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Sounds
+
+        if (frontLeftW.motorTorque > 0 && !driving.isPlaying)
+        {
+            idle.Stop();
+            driving.PlayOneShot(engine);
+        }
+
+        if (frontLeftW.motorTorque == 0 && !idle.isPlaying)
+        {
+            driving.Stop();
+            idle.PlayOneShot(engineIdle);
+        }
+
         GetInput();
         Steer();
         Accelerate();
         UpdateWheelPoses();
         ModifyCarSpeed();
-
     }
+
     //Trigger effect when the car collides with the object.
     private void OnTriggerEnter(Collider other)
     {
