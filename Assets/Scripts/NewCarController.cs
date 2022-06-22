@@ -33,7 +33,6 @@ public class NewCarController : MonoBehaviour
     private bool boosting;
 
 
-
     public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -53,14 +52,6 @@ public class NewCarController : MonoBehaviour
         frontRightW.motorTorque = verticalInput * motorForce;
     }
 
-    private void UpdateWheelPoses()
-    {
-        UpdateWheelPose(frontLeftW, frontLeftT);
-        UpdateWheelPose(frontRightW, frontRightT);
-        UpdateWheelPose(rearLeftW, rearLeftT);
-        UpdateWheelPose(rearRightW, rearRightT);
-    }
-
     private void UpdateWheelPose(WheelCollider collider, Transform transform)
     {
         Vector3 pos = transform.position;
@@ -70,6 +61,31 @@ public class NewCarController : MonoBehaviour
 
         transform.position = pos;
         transform.rotation = quat;
+    }
+
+    private void UpdateWheelPoses()
+    {
+        UpdateWheelPose(frontLeftW, frontLeftT);
+        UpdateWheelPose(frontRightW, frontRightT);
+        UpdateWheelPose(rearLeftW, rearLeftT);
+        UpdateWheelPose(rearRightW, rearRightT);
+    }
+
+    private void PlaySounds()
+    {
+        //Driving
+        if (frontLeftW.motorTorque > 0 && !driving.isPlaying)
+        {
+            idle.Stop();
+            driving.PlayOneShot(engine);
+        }
+
+        //Idle
+        if (frontLeftW.motorTorque == 0 && !idle.isPlaying)
+        {
+            driving.Stop();
+            idle.PlayOneShot(engineIdle);
+        }
     }
 
 
@@ -117,27 +133,11 @@ public class NewCarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Sounds
-
-        if (frontLeftW.motorTorque > 0 && !driving.isPlaying)
-        {
-            idle.Stop();
-            driving.PlayOneShot(engine);
-        }
-
-        if (frontLeftW.motorTorque == 0 && !idle.isPlaying)
-        {
-            driving.Stop();
-            idle.PlayOneShot(engineIdle);
-        }
-
         GetInput();
         Steer();
         Accelerate();
         UpdateWheelPoses();
         ModifyCarSpeed();
+        PlaySounds();
     }
-
-    
-
 }
