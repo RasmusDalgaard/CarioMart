@@ -41,6 +41,6 @@ public class Countdown : MonoBehaviour
         source.PlayOneShot(GoAudio);
         LapTimer.SetActive(true);
         var Car = RoomController.GetComponent<PUN2_RoomController>().playerPrefab;
-        var CarControls = Car.GetComponent<NewCarController>().motorForce = 250;
+        Car.GetComponent<NewCarController>().motorForce = 500;
     }
 }

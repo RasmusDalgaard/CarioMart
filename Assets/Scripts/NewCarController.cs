@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class NewCarController : MonoBehaviour
 {
+    //Input variables
     private float horizontalInput;
     private float verticalInput;
-    private float steeringAngle;
 
+    //Steering
+    private float steeringAngle;
+    [SerializeField] private float maxSteeringAngle = 30;
+
+    //Wheels
     [SerializeField] private WheelCollider frontLeftW, frontRightW;
     [SerializeField] private WheelCollider rearLeftW, rearRightW;
     [SerializeField] private Transform frontLeftT, frontRightT;
     [SerializeField] private Transform rearLeftT, rearRightT;
-    [SerializeField] private float maxSteeringAngle = 30;
-    [SerializeField] public float motorForce = 0;
 
-    [SerializeField] private float mass;
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private float boostTimer;
-    [SerializeField] private bool boosting;
+    //Motorforce
+    public float motorForce = 50;
 
     //Sound
     public AudioSource driving;
@@ -26,8 +27,13 @@ public class NewCarController : MonoBehaviour
     public AudioClip engine;
     public AudioClip engineIdle;
 
+    //Janus
+    private Rigidbody rb;
+    private float boostTimer;
+    private bool boosting;
 
-    
+
+
     public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -99,6 +105,8 @@ public class NewCarController : MonoBehaviour
             driving.Stop();
             idle.PlayOneShot(engineIdle);
         }
+
+        Debug.Log(frontLeftW.motorTorque);
 
         GetInput();
         Steer();

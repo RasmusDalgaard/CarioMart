@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59cac0758ba044c71a71fc6c470ca1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSteeringAngle: 30
   frontLeftW: {fileID: 3550312623742536698}
   frontRightW: {fileID: 3550312623731557290}
   rearLeftW: {fileID: 3550312622868229938}
@@ -654,12 +655,7 @@ MonoBehaviour:
   frontRightT: {fileID: 6058907196859251012}
   rearLeftT: {fileID: 5827073411008777140}
   rearRightT: {fileID: 5640833989542933915}
-  maxSteeringAngle: 30
-  motorForce: 0
-  mass: 0
-  rb: {fileID: 0}
-  boostTimer: 0
-  boosting: 0
+  motorForce: 500
   driving: {fileID: 6901684016564449245}
   idle: {fileID: 3135810379624856128}
   engine: {fileID: 8300000, guid: 127d5bc7152584d8d9446bbb37acec3d, type: 3}
