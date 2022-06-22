@@ -655,6 +655,9 @@ MonoBehaviour:
   maxSteeringAngle: 30
   motorForce: 0
   mass: 0
+  rb: {fileID: 0}
+  boostTimer: 0
+  boosting: 0
 --- !u!114 &3813156252978656283
 MonoBehaviour:
   m_ObjectHideFlags: 0

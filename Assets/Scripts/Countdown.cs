@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
     public GameObject CountDown;
-    //public AudioSource GetReadyAudio;
-    //public AudioSource GoAudio;
+    public AudioSource source;
+    public AudioClip GetReadyAudio;
+    public AudioClip GoAudio;
     public GameObject LapTimer;
     public GameObject RoomController;
     void Start()
@@ -21,23 +22,23 @@ public class Countdown : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         CountDown.GetComponent<Text>().text = "3";
-        //GetReadyAudio.Play();
+        source.PlayOneShot(GetReadyAudio);
         CountDown.SetActive(true);
         yield return new WaitForSeconds(1);
         CountDown.SetActive(false);
 
         CountDown.GetComponent<Text>().text = "2";
-        //GetReadyAudio.Play();
+        source.PlayOneShot(GetReadyAudio);
         CountDown.SetActive(true);
         yield return new WaitForSeconds(1);
         CountDown.SetActive(false);
 
         CountDown.GetComponent<Text>().text = "1";
-        //GetReadyAudio.Play();
+        source.PlayOneShot(GetReadyAudio);
         CountDown.SetActive(true);
         yield return new WaitForSeconds(1);
         CountDown.SetActive(false);
-        //GoAudio.Play()
+        source.PlayOneShot(GoAudio);
         LapTimer.SetActive(true);
         var Car = RoomController.GetComponent<PUN2_RoomController>().playerPrefab;
         var CarControls = Car.GetComponent<NewCarController>().motorForce = 250;
