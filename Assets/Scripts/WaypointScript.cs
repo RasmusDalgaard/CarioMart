@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class WaypointScript : MonoBehaviour
 {
-
-
     public GameObject[] waypoints;
     int current = 0;
     public float speed;
-    float WPradius = 1;
+    float WPradius = 1;  //WaypointRadius
 
     void Update()
     {

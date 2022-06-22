@@ -72,6 +72,32 @@ public class NewCarController : MonoBehaviour
         transform.rotation = quat;
     }
 
+
+    //Trigger effect when the car collides with the object.
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SlowSpeed")               //Slow the speed of the car
+        {
+            boosting = true;
+            rb = GetComponent<Rigidbody>();
+            rb.mass = 500000;
+        }
+        if (other.tag == "SpeedBoost")              //Increase the speed of the car
+        {
+            boosting = true;
+            rb = GetComponent<Rigidbody>();
+            rb.mass = 130;
+        }
+        if (other.tag == "SpeedBoostOneUse")       //One time use. Increase the speed of the car
+        {
+            boosting = true;
+            rb = GetComponent<Rigidbody>();
+            rb.mass = 130;
+            Destroy(other.gameObject);
+        }
+    }
+
+
     private void ModifyCarSpeed()
     {
         if (boosting)                                   //Boosting is default false. It is set to true when the car collides with the object
@@ -87,7 +113,6 @@ public class NewCarController : MonoBehaviour
             }
         }
     }
-
 
 
     private void FixedUpdate()
@@ -113,28 +138,6 @@ public class NewCarController : MonoBehaviour
         ModifyCarSpeed();
     }
 
-    //Trigger effect when the car collides with the object.
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "SlowSpeed")               //Slow the speed of the car
-        {
-            boosting = true;
-            rb = GetComponent<Rigidbody>();
-            rb.mass = 500000;
-        }
-        if (other.tag == "SpeedBoost")              //Increase the speed of the car
-        {
-            boosting = true;
-            rb = GetComponent<Rigidbody>();
-            rb.mass = 130;
-        }
-        if (other.tag == "SpeedBoostOneUse")       //One time use. Increase the speed of the car
-        {
-            boosting = true;
-            rb = GetComponent<Rigidbody>();
-            rb.mass = 130;
-            Destroy(other.gameObject);
-        }
-    }
+    
 
 }
