@@ -19,7 +19,7 @@ public class NewCarController : MonoBehaviour
     [SerializeField] private Transform rearLeftT, rearRightT;
 
     //Motorforce
-    public float motorForce = 50;
+    public float motorForce = 0;
 
     //Sound
     public AudioSource driving;

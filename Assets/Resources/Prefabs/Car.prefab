@@ -655,7 +655,7 @@ MonoBehaviour:
   frontRightT: {fileID: 6058907196859251012}
   rearLeftT: {fileID: 5827073411008777140}
   rearRightT: {fileID: 5640833989542933915}
-  motorForce: 500
+  motorForce: 0
   driving: {fileID: 6901684016564449245}
   idle: {fileID: 3135810379624856128}
   engine: {fileID: 8300000, guid: 127d5bc7152584d8d9446bbb37acec3d, type: 3}
