@@ -32,9 +32,6 @@ public class NewCarController : MonoBehaviour
     private float boostTimer;
     private bool boosting;
 
-    //Test
-    [SerializeField]private int speed;
-
 
 
     public void GetInput()
