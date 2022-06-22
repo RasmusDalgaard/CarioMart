@@ -119,20 +119,25 @@ public class NewCarController : MonoBehaviour
     //Trigger effect when the car collides with the object.
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "SlowSpeed")
+        if (other.tag == "SlowSpeed")               //Slow the speed of the car
         {
             boosting = true;
             rb = GetComponent<Rigidbody>();
             rb.mass = 500000;
         }
-        if (other.tag == "SpeedBoost")
+        if (other.tag == "SpeedBoost")              //Increase the speed of the car
         {
             boosting = true;
             rb = GetComponent<Rigidbody>();
             rb.mass = 130;
-            // Destroy(other.gameObject);
+        }
+        if (other.tag == "SpeedBoostOneUse")       //One time use. Increase the speed of the car
+        {
+            boosting = true;
+            rb = GetComponent<Rigidbody>();
+            rb.mass = 130;
+            Destroy(other.gameObject);
         }
     }
-
 
 }
