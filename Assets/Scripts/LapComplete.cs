@@ -49,7 +49,7 @@ public class LapComplete : MonoBehaviour
                 MinuteDisplayBest.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
             }
 
-            MilliDisplayBest.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString().Replace(",", "");
+            MilliDisplayBest.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString("F0").Replace(",", " ");
         }
 
         PlayerPrefs.SetInt("MinSave", LapTimeManager.MinuteCount);

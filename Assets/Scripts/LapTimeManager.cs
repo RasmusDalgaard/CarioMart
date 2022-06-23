@@ -20,7 +20,7 @@ public class LapTimeManager : MonoBehaviour
         MilliCount += Time.deltaTime * 10;
         RawTime += Time.deltaTime;
         //Convert to string value
-        MilliDisplay = MilliCount.ToString("F0").Replace(",", "");
+        MilliDisplay = MilliCount.ToString("F0");
         //Display milliseconds in the UI element
         MilliBox.GetComponent<Text>().text = "" + MilliDisplay;
         //Reset MilliCount to 0 when it hits 10, and increment SecondCount

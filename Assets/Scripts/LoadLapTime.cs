@@ -17,8 +17,15 @@ public class LoadLapTime : MonoBehaviour
         SecCount = PlayerPrefs.GetInt("SecSave");
         MilliCount = PlayerPrefs.GetFloat("MilliSave");
 
-        MinDisplayBest.GetComponent<Text>().text = "" + MinCount + ":";
-        SecDisplayBest.GetComponent<Text>().text = "" + SecCount + ".";
+        MinDisplayBest.GetComponent<Text>().text = "0" + MinCount + ":";
+        if (SecCount < 10)
+        {
+            SecDisplayBest.GetComponent<Text>().text = "0" + SecCount + ".";
+        }
+        else
+        {
+            SecDisplayBest.GetComponent<Text>().text = "" + SecCount + ".";
+        }
         MilliDisplayBest.GetComponent<Text>().text = "" + MilliCount.ToString().Replace(",", "");
     }
 
